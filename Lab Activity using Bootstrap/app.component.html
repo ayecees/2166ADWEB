@@ -1,0 +1,179 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Watching Machine</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="count" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">{{ clickCount }}</span>
+                </button>
+                <button class="count" type="submit" (click)="resetClickCount()">
+                    <i class="bi-cart-fill me-1"></i>
+                    Reset
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Product section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ML743_VW_34FR+watch-case-41-stainless-graphite-s9_VW_34FR+watch-face-41-stainless-graphite-s9_VW_34FR?wid=2560&hei=1640&bgc=fafafa&trim=1&fmt=p-jpg&qlt=80&.v=WmtqemNXbzJrSUhnaHJ5ZlJhY3NZdDlWL3ZkbjVDbFV2QXF2czAxWWJXYWlVd3pDUEkyWWl2cFY2TjkzV1lhVHl2M3JFSzgxeU4xYVE5dnVNZmdENjRWZm85VEN4ZlF2aU5KQjlvL2xmaWNrSnk3b2M5RkRpQjdRQ1h1Z0w0N1g1UUJKRC9ZTm9vQWljWGgvL1paSER1azZBY0ZXTlFGQjJWdkJQbmVYNnRhT0lodkdNeWd3SHAzZlUzNms5S2kxU2xDa2ttY2dzWENkb0dDVHdHMXNJM3lUS2l0akJyQXp6K3BTRi9VNjRDWT0" alt="..." /></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">Apple Watch</h1>
+                <div class="fs-5 mb-5">
+                    <span class="text-decoration-line-through">$45.00</span>
+                    <span>$40.00</span>
+                </div>
+                <p class="lead">Experience the seamless blend of cutting-edge technology and classic design as you explore the world of smartwatches. From tracking your fitness goals with precision to staying connected on the go, this iconic timepiece is more than just a watch – it's a lifestyle companion</p>
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="button"(click)="clickMe()">
+
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related items section-->
+<section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">Related products</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://images.samsung.com/is/image/samsung/p6pim/ph/2208/gallery/ph-galaxy-watch5-40mm-sm-r900nzsaasa-533196879?$1300_1038_PNG$" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Samsung Watch</h5>
+                            <!-- Product price-->
+                            $40.00 - $80.00
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="button"(click)="clickMe()">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://i.etsystatic.com/37015445/r/il/06cbc0/5203028945/il_794xN.5203028945_pvst.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Omnitrix Ver. 1</h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            <span class="text-muted text-decoration-line-through">$20.00</span>
+                            $18.00
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="button"(click)="clickMe()">
+
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://jokesoftheday.net/jokes-archive/2014/10/31/Apple-watch.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Apple Watch Prototype</h5>
+                            <!-- Product price-->
+                            <span class="text-muted text-decoration-line-through">$50.00</span>
+                            $25.00
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="button"(click)="clickMe()">
+
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://i.ebayimg.com/images/g/oVgAAOSw5HJXLPqM/s-l500.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">It's Adventure Time</h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            $40.00
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="button"(click)="clickMe()">
+
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
