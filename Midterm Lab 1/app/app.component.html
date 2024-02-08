@@ -1,0 +1,50 @@
+<h1>Date with Parameters</h1>
+<p>Formatted Date: {{presentDate | date: 'M/dd/'yyyy'}}</p>
+<p>Hours and Minutes: {{presentDate | date: 'h:mm'}}</p>
+
+<hr>
+<h2>Chained Pipe Demo</h2>
+Date with uppercase text: {{presentDate | date:'fullDate' | uppercase}}
+Seconds changing in time: {{time$ | async | date:'mediumTime'}}
+
+
+<hr>
+<h2>Date Pipes & Text Format</h2>
+<p>Short Date: {{presentDate | date: 'shortDate'}}</p>
+<p>Medium Date: {{presentDate | date: 'mediumDate'}}</p>
+<p>Long Date: {{presentDate | date: 'longDate'}}</p>
+
+<hr>
+<h2>Currency Pipes</h2>
+<div>{{ money | currency:'USD':'symbol'}}</div>
+<div>{{ money | currency:'JPY':'symbol'  }}</div>
+<div>{{ money | currency:'JPY':'' }}円</div>
+
+<hr>
+<h2>Decimal Pipes</h2>
+<p>{{decimalNum1 | number}}</p>
+<p>{{decimalNum2 | number}}</p>
+<p>{{decimalNum3 | number}}</p>
+
+<hr>
+<h2>Json Pipes</h2>
+<p>With JSON pipe:</p>
+<p>object1</p>
+<pre>{{ object1 | json }}</pre>
+<p>object2</p>
+<pre>{{ object2 | json }}</pre>
+<p>object3</p>
+<pre>{{ object3 | json }}</pre>
+
+<hr>
+<h2>Percent Pipes</h2>
+<p>Num1: is {{num1 | percent }}</p>
+<p>Num2: is {{num2 | percent }}</p>
+<p>Num2: is {{num2 | percent: '2.3-5' }}</p>
+
+<hr>
+<h2>Slice Pipes</h2>
+<p>Start index:- {{Fruits | slice:2}}</p>
+<p>Start and end:- {{Fruits | slice:1:4}}</p>
+<p>Negative index:- {{Fruits | slice:-2}}</p>
+<p>Negative start and end index:- {{Fruits | slice:-4:-2}}</p>
