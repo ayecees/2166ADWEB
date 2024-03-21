@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2 class="h2">Books List</h2>
+    </div>
+   
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th class="text-center" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of Books; let i = index">
+            <th scope="row">{{book._id}}</th>
+            <td>{{book.title}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.book_type}}</td>
+            <td class="text-center">
+              <button class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center light:bg-blue-600 light:hover:bg-green-700 dark:focus:ring-green-700" routerLink="/edit-book/{{book._id}}">Edit</button>
+              &nbsp;<button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center light:bg-red-600 light:hover:bg-red-700 dark:focus:ring-red-700" (click)="delete(book._id, i)">Delete</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
