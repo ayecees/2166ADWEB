@@ -1,69 +1,64 @@
 const express = require('express');
-const app = express();
- 
 const bookRoute = express.Router();
-let Book = require('../model/Book');
- 
+const Book = require('../model/Book');
+
 // Add Book
-bookRoute.route('/add-book').post((req, res, next) => {
-    Book.create(req.body, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
-    }
-  })
+bookRoute.post('/add-book', async (req, res, next) => {
+  try {
+    const book = await Book.create(req.body);
+    res.status(201).json(book);
+  } catch (error) {
+    next(error);
+  }
 });
- 
-// Get all Book
-bookRoute.route('/').get((req, res) => {
-    Book.find((error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
+
+// Get all Books
+bookRoute.get('/', async (req, res, next) => {
+  try {
+    const books = await Book.find();
+    res.json(books);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get Book by ID
+bookRoute.get('/read-book/:id', async (req, res, next) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
     }
-  })
-})
- 
-// Get Book
-bookRoute.route('/read-book/:id').get((req, res) => {
-    Book.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
+    res.json(book);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update Book by ID
+bookRoute.put('/update-book/:id', async (req, res, next) => {
+  try {
+    const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedBook) {
+      return res.status(404).json({ message: 'Book not found' });
     }
-  })
-})
- 
- 
-// Update Book
-bookRoute.route('/update-book/:id').put((req, res, next) => {
-    Book.findByIdAndUpdate(req.params.id, {
-    $set: req.body
-  }, (error, data) => {
-    if (error) {
-      return next(error);
-      console.log(error)
-    } else {
-      res.json(data)
-      console.log('Book updated successfully!')
+    res.json(updatedBook);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Delete Book by ID
+bookRoute.delete('/delete-book/:id', async (req, res, next) => {
+  try {
+    const deletedBook = await Book.findByIdAndDelete(req.params.id);
+    if (!deletedBook) {
+      return res.status(404).json({ message: 'Book not found' });
     }
-  })
-})
- 
-// Delete Book
-bookRoute.route('/delete-book/:id').delete((req, res, next) => {
-    Book.findByIdAndRemove(req.params.id, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.status(200).json({
-        msg: data
-      })
-    }
-  })
-})
- 
+    res.status(200).json({ message: 'Book deleted successfully' });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = bookRoute;
